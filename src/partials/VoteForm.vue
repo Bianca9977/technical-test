@@ -1,34 +1,78 @@
 <template>
-    <div class="vote-form flex justify-center items-center flex-col">
+    <div class="flex justify-center items-center flex-col pb-10">
         <form class="flex flex-col lg:max-w-96">
             <label for="lastName">Nume*</label>
-            <input type="text" name="lastName" placeholder="">
+            <input type="text" name="lastName" placeholder="" v-model="lastName" required>
             <label for="firstName">Prenume*</label>
-            <input type="text" name="firstName" placeholder="">
+            <input type="text" name="firstName" placeholder="" v-model="firstName" required>
             <label for="phone">Număr de telefon*</label>
-            <input type="text" name="phone" placeholder="">
+            <input type="text" name="phone" placeholder="" v-model="phoneNo" required>
             <label for="email">Adresă de email*</label>
-            <input type="text" name="email" placeholder=""> 
-            <div class="flex relative pt-2">
-                <label class="pl-8" for="ageCheckbox">Am împlinit 18 ani;
-                    <input type="checkbox" id="ageCheckbox" checked="checked" />
-                    <span class="custom-checkbox"></span> 
-                </label>
+            <input type="text" name="email" placeholder="" v-model="email" required> 
+            <span class="error-msg" v-if="errorMsg">{{ errorMsg }}</span>
+            <div class="flex flex-row-reverse justify-end items-end relative pt-2">
+                <label class="pl-4" for="ageCheckbox">Am împlinit 18 ani;</label>
+                <input type="checkbox" id="ageCheckbox" v-model="checked" />
             </div>
-            <div class="flex relative pt-2">
-                <input type="checkbox" id="rulesCheckbox" v-model="checked" />
+            <div class="flex flex-row-reverse justify-end items-end relative pt-2">
                 <label class="pl-4" for="rulesCheckbox">Sunt de acord cu Regulamentul concursului;</label>
-                <span class="custom-checkbox"></span> 
-            </div>
+                <input type="checkbox" id="rulesCheckbox" v-model="checked" />
+            </div> 
         </form>
-        <button class="py-2 px-8 mt-6 mb-3 mx-auto">TRIMITE</button>
+        <button @click="submitForm" class="py-2 px-8 mt-6 mb-3 mx-auto">TRIMITE</button>
+        <div v-show="submitOverlay" class="submit-overlay absolute flex">
+            <div class="text-box py-12 px-16 m-auto">
+                <h3>
+                    Felicitări te-ai înscris!
+                </h3>
+                <p>
+                    Recomandă și prietenilor tăi de pe Facebook
+                </p>
+                <button @click="closeForm" class="py-2 px-8 mt-6 mb-3 mx-auto btn-close">ÎNCHIDE</button>
+            </div>
+        </div>
     </div>
  </template>
    
 <script>
 export default {
     name: 'Vote-Form',
-    props: {
+    data() {
+        return {
+            submitOverlay: false,
+            lastName: '',
+            firstName: '',
+            phoneNo: '',
+            email: '',
+            errorMsg: '',
+        }
+    },
+    watch: {
+        email(value){
+            this.email = value;
+            this.validateEmail(value);
+        }
+    },
+    methods: {
+        validateEmail(value){
+            // eslint-disable-next-line
+            const regex=/^[\w-\.]+@([\w-]+\.)+[\w-]{2,4}$/;
+            if (regex.test(value)) {
+                this.errorMsg = '';
+            } 
+            else{
+                this.errorMsg = "Adresă de email invalidă";
+            } 
+        },
+        
+        submitForm() {
+            this.submitOverlay = true;
+        },
+
+        closeForm() {
+            this.submitOverlay = false;
+            this.$parent.closeForm();
+        }
     }
 }
 </script>
@@ -54,17 +98,32 @@ input {
 }
 
 input[type="checkbox"] {
-    visibility: hidden;   
-}
-.custom-checkbox {
-    display: block;
-    position: absolute;
-    top: 0.5rem;
-    left: 0;
-    height: 20px;
+    appearance: none;
+    background-color: transparent;
+    margin: 0;
+    color: $complementary-accent;
     width: 20px;
+    height: 20px;
     border: 1px solid $complementary-accent;
+    border-radius: 1px;
+    transform: translateY(-0.075em);
+    display: grid;
+    place-content: center;
 }
+
+input[type="checkbox"]::before {
+    content: "";
+    width: 12px;
+    height: 12px;
+    transform: scale(0);
+    transition: 120ms transform ease-in-out;
+    box-shadow: inset 1em 1em $complementary-accent;
+}
+
+input[type="checkbox"]:checked::before {
+  transform: scale(1);
+}
+
 
 button {
     background-color: transparent;
@@ -77,6 +136,42 @@ button {
     &:hover {
         background-color: $primary-accent;
         color: $complementary-accent;
+    }
+
+    &.btn-close {
+        color: $primary-accent;
+
+        &:hover {
+            color: $complementary-accent !important;
+        }
+    }
+}
+
+.error-msg {
+    color: $primary-accent;
+    font-family: $font-bold;
+    text-align: left;
+    padding-top: 4px
+}
+
+.submit-overlay {
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background: rgba(0, 0, 0, 0.3);
+
+    .text-box {
+        background-color: $neutral-background;
+
+        h3 {
+            color: $primary-accent;
+            font-family: $font-bold;
+        }
+
+        p {
+            color: $primary-background;
+        }
     }
 }
 </style>

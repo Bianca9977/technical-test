@@ -15,7 +15,7 @@ export default {
         imgSrc: String,
         quantity: String,
         description: String,
-        index: Number,
+        index: String,
     }
 }
 </script>

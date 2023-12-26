@@ -1,3 +1,23 @@
 body, p {
     font-family: 'Satoshi', sans-serif;
 }
+
+/* width */
+::-webkit-scrollbar {
+width: 10px;
+}
+
+/* Track */
+::-webkit-scrollbar-track {
+background: #ECECEC; 
+}
+
+/* Handle */
+::-webkit-scrollbar-thumb {
+background: #e33054; 
+}
+
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+background: #AAAAAA; 
+}
