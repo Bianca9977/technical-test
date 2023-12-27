@@ -8,8 +8,8 @@
                 <div class="hidden sm:ml-6 sm:block">
                     <div class="flex justify-center text-lg">
                         <router-link @click="trackPage('/')" to="/" class="mx-6" :class="[(activePage == '/') ? 'active' : '']">CONCURS</router-link>
-                        <router-link @click="trackPage('castigatori')" to="/castigatori" class="mx-6" :class="[(activePage == 'castigatori') ? 'active' : '']">CÂȘTIGĂTORI</router-link>
-                        <router-link @click="trackPage('regulament')" to="/" class="mx-6" :class="[(activePage == 'regulament') ? 'active' : '']">REGULAMENT</router-link>
+                        <router-link @click="trackPage('/castigatori')" to="/castigatori" class="mx-6" :class="[(activePage == '/castigatori') ? 'active' : '']">CÂȘTIGĂTORI</router-link>
+                        <router-link @click="trackPage('/regulament')" to="/" class="mx-6" :class="[(activePage == '/regulament') ? 'active' : '']">REGULAMENT</router-link>
                     </div>
                 </div>
                 <div class="flex items-center sm:hidden">
@@ -25,9 +25,9 @@
 
         <div :class="[isMenuOpen ? 'block' : 'hidden']" class="sm:hidden" id="mobile-menu">
             <div class="p-3 flex flex-col">
-                <router-link @click="closeMenu" to="/" class="py-4">CONCURS</router-link>
-                <router-link @click="closeMenu" to="/castigatori" class="py-4">CÂȘTIGĂTORI</router-link>
-                <router-link @click="closeMenu" to="/" class="py-4">REGULAMENT</router-link>
+                <router-link @click="closeMenu(); trackPage('/')" to="/" class="py-4" :class="[(activePage == '/') ? 'active' : '']">CONCURS</router-link>
+                <router-link @click="closeMenu(); trackPage('/castigatori')" to="/castigatori" class="py-4" :class="[(activePage == '/castigatori') ? 'active' : '']">CÂȘTIGĂTORI</router-link>
+                <router-link @click="closeMenu(); trackPage('/regulament')" to="/" class="py-4" :class="[(activePage == '/regulament') ? 'active' : '']">REGULAMENT</router-link>
             </div>
         </div>
     </nav>
@@ -43,7 +43,7 @@ export default {
         }
     },
     mounted() {
-       this.activePage = this.$route.path;
+       this.activePage = this.$route.fullPath;
     },
     methods: {
         toggleMenu() {

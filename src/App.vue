@@ -1,17 +1,17 @@
 <template>
   <nav-bar />
   <router-view />
-<!--   <footer-section /> -->
+  <footer-section /> 
 </template>
 
 <script>
 import NavBar from './partials/NavBar.vue';
-//import FooterSection from './partials/FooterSection.vue';
+import FooterSection from './partials/FooterSection.vue';
 
 export default {
   name: 'App',
   components: {
-    NavBar
+    NavBar, FooterSection
   }
 }
 </script>

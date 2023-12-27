@@ -10,7 +10,7 @@
             <label for="email" class="mt-4">Adresă de email*</label>
             <input type="text" name="email" placeholder="" v-model="email" required> 
             <span class="error-msg" v-if="errorMsg">{{ errorMsg }}</span>
-            <div class="flex flex-row-reverse justify-end items-center text-left relative pt-2">
+            <div class="flex flex-row-reverse justify-end items-center text-left relative pt-4">
                 <label class="pl-4 text-base mt-0" for="ageCheckbox">Am împlinit 18 ani;</label>
                 <input type="checkbox" id="ageCheckbox" v-model="ageCheck" />
             </div>
