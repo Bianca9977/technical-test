@@ -1,25 +1,20 @@
 <template>
-  <LandingPage/>
+  <nav-bar />
+  <router-view />
+<!--   <footer-section /> -->
 </template>
 
 <script>
-import LandingPage from './components/Landing-page.vue';
+import NavBar from './partials/NavBar.vue';
+//import FooterSection from './partials/FooterSection.vue';
 
 export default {
   name: 'App',
   components: {
-    LandingPage
+    NavBar
   }
 }
 </script>
 
 <style>
-#app {
-  font-family: Avenir, Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
-  margin-top: 60px;
-}
 </style>

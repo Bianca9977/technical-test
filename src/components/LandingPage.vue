@@ -1,49 +1,47 @@
 <template>
   <div class="landing-page">
     <div class="background-image"></div>
-    <h1 class="text-2xl lg:text-4xl md:px-12 lg:px-72">
+    <h1 class="text-2xl lg:text-3xl px-4 md:px-12 xl:px-80 py-6 lg:py-16">
       Tu sari de pe fix și votezi, iar Shopster îți da premii pentru o distracție pe cinste! 
       <br/><br/>
       Poți câștiga o boxa karaoke sau un proiector sau chiar o pereche de ochelari VR, totul pentru starea ta de bine!
     </h1>
-    <section class="video-section mt-8 md:p-8 mt-14">
-      <h2 class="text-2xl md:px-4 lg:px-0 lg:pt-10">
+    <section class="video-section py-10 mt-8 md:p-8 mt-14">
+      <h2 class="text-xl lg:text-2xl px-6 xl:px-0">
         Votează cel mai Sărit(i) de pe FIX moment și poți câștigă premiile puse în joc! 
         <br/><br/>
         Dă click pe butonul VOTEAZĂ și completează formularul de înscriere.
       </h2>
       <div>
-        <div class="grid lg:grid-cols-3 mt-6 lg:mt-28 lg:max-w-screen-2xl lg:mx-auto">
-          <div class="video-container flex flex-col justify-center	mx-4 mt-4 md:mx-12 md:mt-0">
+        <div class="grid lg:grid-cols-3 mt-6 lg:mt-28 lg:max-w-screen-2xl lg:mx-auto lg:pb-12">
+          <div class="video-container flex flex-col justify-center mx-4 mt-12 md:mx-12 lg:mt-0">
             <iframe id="video-1" class="video" src="https://www.youtube.com/embed/emdjcTuGhSQ?si=M41N4-Ng-XJX72YK" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
-            <button id="video-1-btn" @click="toggleForm('video-1')" class="py-2 px-4 mt-12 mx-auto vote-btn">VOTEAZĂ</button>
+            <button id="video-1-btn" @click="toggleForm('video-1')" class="py-2 px-4 mt-6 lg:mt-12 mx-auto vote-btn">VOTEAZĂ</button>
           </div>
-          <div class="video-container flex flex-col justify-center	mx-4 mt-4 md:mx-12 md:mt-0">
+          <div class="video-container flex flex-col justify-center mx-4 mt-12 md:mx-12 lg:mt-0">
             <iframe id="video-2" class="video" src="https://www.youtube.com/embed/X6Yitp-R7X0?si=3O3yMIixY6e_uiwP" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
-            <button id="video-2-btn" @click="toggleForm('video-2')" class="py-2 px-4 mt-12 mx-auto vote-btn">VOTEAZĂ</button>
+            <button id="video-2-btn" @click="toggleForm('video-2')" class="py-2 px-4 mt-6 lg:mt-12 mx-auto vote-btn">VOTEAZĂ</button>
           </div>
-          <div class="video-container flex flex-col justify-center	mx-4 mt-4 md:mx-12 md:mt-0">
+          <div class="video-container flex flex-col justify-center mx-4 mt-12 md:mx-12 lg:mt-0">
             <iframe id="video-3" class="video" src="https://www.youtube.com/embed/q3dsM0Qtc3w?si=AoRhKLj5JMlUUpNe" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
-            <button id="video-3-btn" @click="toggleForm('video-3')" class="py-2 px-4 mt-12 mx-auto vote-btn">VOTEAZĂ</button>
+            <button id="video-3-btn" @click="toggleForm('video-3')" class="py-2 px-4 mt-6 lg:mt-12 mx-auto vote-btn">VOTEAZĂ</button>
           </div>
         </div>
       </div>
       </section>
-      <section class="py-8 vote-form" id="formSection">
-        <div v-show="formToggle" class="form-wrapper my-14 lg:max-w-screen-md lg:mx-auto relative">
-          <h2 class="color-light pt-10">FORMULAR DE ÎNSCRIERE</h2>
+      <section v-show="formToggle" class="vote-form lg:py-14 xl:pb-40" id="formSection">
+        <div class="form-wrapper py-20 lg:py-8 lg:max-w-screen-md lg:mx-auto relative">
+          <h2 class="color-light lg:pt-16 text-xl lg:text-2xl">FORMULAR DE ÎNSCRIERE</h2>
           <vote-form class="pt-6 lg:pt-10"/>
         </div>
       </section>
-    <section class="prizes-section p-4 md:p-8">
-      <h2 class="color-blue">
-        PREMII
-      </h2>
-      <div>
+    <section class="prizes-section p-4 pt-10 md:p-8">
+      <h2 class="color-blue text-xl lg:text-2xl">PREMII</h2>
+      <div class="pb-8 lg:py-16">
         <div class="grid lg:grid-cols-3 lg:max-w-screen-2xl lg:mx-auto">
-          <prize-box imgSrc="images/proiector.png" quantity="5" description="Videoproiector Portabil" index="1" />
-          <prize-box imgSrc="images/boxa.png" quantity="3" description="Boxa Bluetooth Portabila Karaoke" index="2"/>
-          <prize-box imgSrc="images/ochelari-vr.png" quantity="10" description="Ochelari VR NUODWELL" index="3"/>
+          <prize-box imgSrc="images/videoproiector.png" description="Videoproiector Portabil" index="1" />
+          <prize-box imgSrc="images/boxe.png" description="Boxa Bluetooth Portabila Karaoke" index="2"/>
+          <prize-box imgSrc="images/ochelari.png" description="Ochelari VR NUODWELL" index="3"/>
         </div>
       </div>
     </section>
@@ -54,7 +52,7 @@
 import VoteForm from "../partials/VoteForm.vue"
 import PrizeBox from "../partials/PrizeBox.vue"
 export default {
-  name: 'Landing-page',
+  name: 'LandingPage',
   data() {
     return {
       formToggle: false,
@@ -118,6 +116,7 @@ h1, h2 {
     color: $primary-background;
   }
 }
+
 .video-section,
 .vote-form {
   background-color: $primary-background;
@@ -129,7 +128,13 @@ h1, h2 {
     width: auto;
 
     @media (max-width: 768px) {
-      height: 200px;
+      height: 180px !important;
+      max-width: 80vw;
+      margin: 0 auto;
+    }
+
+    @media (max-width: 1024px) {
+      height: 300px;
     }
 
     &.video-active {
@@ -155,8 +160,9 @@ h1, h2 {
     }
   }
 }
-
 .form-wrapper {
-  border: 2px solid $complementary-accent;
+  @media (min-width: 768px) { 
+    border: 2px solid $complementary-accent;
+  }
 }
 </style>

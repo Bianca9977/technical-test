@@ -1,27 +1,27 @@
 <template>
-    <div class="flex justify-center items-center flex-col pb-10">
-        <form class="flex flex-col lg:max-w-96">
-            <label for="lastName">Nume*</label>
+    <div class="flex justify-center items-center flex-col px-8 sm:px-0">
+        <form class="flex flex-col lg:max-w-96 text-xl">
+            <label for="lastName" class="mt-4">Nume*</label>
             <input type="text" name="lastName" placeholder="" v-model="lastName" required>
-            <label for="firstName">Prenume*</label>
+            <label for="firstName" class="mt-4">Prenume*</label>
             <input type="text" name="firstName" placeholder="" v-model="firstName" required>
-            <label for="phone">Număr de telefon*</label>
+            <label for="phone" class="mt-4">Număr de telefon*</label>
             <input type="text" name="phone" placeholder="" v-model="phoneNo" required>
-            <label for="email">Adresă de email*</label>
+            <label for="email" class="mt-4">Adresă de email*</label>
             <input type="text" name="email" placeholder="" v-model="email" required> 
             <span class="error-msg" v-if="errorMsg">{{ errorMsg }}</span>
-            <div class="flex flex-row-reverse justify-end items-end relative pt-2">
-                <label class="pl-4" for="ageCheckbox">Am împlinit 18 ani;</label>
-                <input type="checkbox" id="ageCheckbox" v-model="checked" />
+            <div class="flex flex-row-reverse justify-end items-center text-left relative pt-2">
+                <label class="pl-4 text-base mt-0" for="ageCheckbox">Am împlinit 18 ani;</label>
+                <input type="checkbox" id="ageCheckbox" v-model="ageCheck" />
             </div>
-            <div class="flex flex-row-reverse justify-end items-end relative pt-2">
-                <label class="pl-4" for="rulesCheckbox">Sunt de acord cu Regulamentul concursului;</label>
-                <input type="checkbox" id="rulesCheckbox" v-model="checked" />
+            <div class="flex flex-row-reverse justify-end items-center text-left relative pt-2">
+                <label class="pl-4 text-base mt-0" for="rulesCheckbox">Sunt de acord cu Regulamentul concursului;</label>
+                <input type="checkbox" id="rulesCheckbox" v-model="rulesCheck" />
             </div> 
         </form>
-        <button @click="submitForm" class="py-2 px-8 mt-6 mb-3 mx-auto">TRIMITE</button>
-        <div v-show="submitOverlay" class="submit-overlay absolute flex">
-            <div class="text-box py-12 px-16 m-auto">
+        <button @click="submitForm" class="py-2 px-8 mt-10 mb-3 mx-auto">TRIMITE</button>
+        <div v-show="submitOverlay" class="submit-overlay absolute flex justify-center">
+            <div class="text-box py-10 px-16 lg:py-12 lg:px-16 mx-4 lg:mx-0 m-auto">
                 <h3>
                     Felicitări te-ai înscris!
                 </h3>
@@ -45,6 +45,8 @@ export default {
             phoneNo: '',
             email: '',
             errorMsg: '',
+            ageCheck: false,
+            rulesCheck: false,
         }
     },
     watch: {
@@ -83,7 +85,6 @@ export default {
 label {
     color: $neutral-background;
     align-self: flex-start;
-    margin-top: 1rem;
 }
 
 input {
