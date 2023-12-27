@@ -42,6 +42,9 @@
 <script>
 export default {
     name: 'Vote-Form',
+    props: {
+        selectedVideo: String,
+    },
     data() {
         return {
             submitOverlay: false,

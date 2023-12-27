@@ -32,7 +32,7 @@
       <section v-show="formToggle" class="vote-form lg:py-14 xl:pb-40" id="formSection">
         <div class="form-wrapper py-20 lg:py-8 lg:max-w-screen-md lg:mx-auto relative">
           <h2 class="color-light lg:pt-16 text-xl lg:text-2xl">FORMULAR DE ÎNSCRIERE</h2>
-          <vote-form class="pt-6 lg:pt-10"/>
+          <vote-form :selectedVideo=selectedVideo class="pt-6 lg:pt-10"/>
         </div>
       </section>
     <section class="prizes-section p-4 pt-10 md:px-8 md:pt-16">
@@ -56,6 +56,7 @@ export default {
   data() {
     return {
       formToggle: false,
+      selectedVideo: '',
     }
   },
   components: {
@@ -65,6 +66,7 @@ export default {
   },
   methods: {
     toggleForm(videoId) {
+      this.selectedVideo = videoId;
       this.formToggle = true;
       const el = document.getElementById('formSection');
       this.$nextTick(() => el.scrollIntoView({ behavior: "smooth" }));
