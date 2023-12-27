@@ -1,7 +1,7 @@
 <template>
     <div class="winners-page pb-10">
         <div class="background-image"></div>
-        <h2 class="py-10">CÂȘTIGĂTORI</h2>
+        <h2 class="py-10 text-xl lg:text-2xl">CÂȘTIGĂTORI</h2>
         <div class="winners-wrapper lg:max-w-screen-md lg:mx-auto mx-8">
 
         </div>

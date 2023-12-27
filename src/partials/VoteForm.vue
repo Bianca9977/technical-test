@@ -21,7 +21,7 @@
         </form>
         <button @click="submitForm" class="py-2 px-8 mt-10 mb-3 mx-auto">TRIMITE</button>
         <div v-show="submitOverlay" class="submit-overlay absolute flex justify-center">
-            <div class="text-box py-10 px-10 lg:py-12 lg:px-16 mx-4 lg:mx-0 m-auto">
+            <div class="text-box py-10 px-10 lg:py-12 lg:px-16 mx-4 lg:mx-0 m-auto text-base lg:text-xl">
                 <h3>
                     Felicitări te-ai înscris!
                 </h3>

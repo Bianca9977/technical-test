@@ -6,7 +6,7 @@
       <br/><br/>
       Poți câștiga o boxa karaoke sau un proiector sau chiar o pereche de ochelari VR, totul pentru starea ta de bine!
     </h1>
-    <section class="video-section py-10 mt-8 md:p-8 mt-14">
+    <section class="video-section py-10 md:px-8 md:py-16">
       <h2 class="text-xl lg:text-2xl px-6 xl:px-0">
         Votează cel mai Sărit(i) de pe FIX moment și poți câștigă premiile puse în joc! 
         <br/><br/>
@@ -35,7 +35,7 @@
           <vote-form class="pt-6 lg:pt-10"/>
         </div>
       </section>
-    <section class="prizes-section p-4 pt-10 md:p-8">
+    <section class="prizes-section p-4 pt-10 md:px-8 md:pt-16">
       <h2 class="color-blue text-xl lg:text-2xl">PREMII</h2>
       <div class="pb-8 lg:py-16">
         <div class="grid lg:grid-cols-3 lg:max-w-screen-2xl lg:mx-auto">
@@ -161,7 +161,7 @@ h1, h2 {
   }
 }
 .form-wrapper {
-  @media (min-width: 768px) { 
+  @media (min-width: 1024px) { 
     border: 2px solid $complementary-accent;
   }
 }
