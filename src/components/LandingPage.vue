@@ -14,15 +14,15 @@
       </h2>
       <div>
         <div class="grid lg:grid-cols-3 mt-6 lg:mt-28 lg:max-w-screen-2xl lg:mx-auto lg:pb-12">
-          <div class="video-container flex flex-col justify-center mx-4 mt-12 md:mx-12 lg:mt-0">
+          <div class="video-container flex flex-col justify-center mx-4 mt-12 md:mx-20 lg:mx-6 xl:mx-12 lg:mt-0">
             <iframe id="video-1" class="video" src="https://www.youtube.com/embed/emdjcTuGhSQ?si=M41N4-Ng-XJX72YK" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
             <button id="video-1-btn" @click="toggleForm('video-1')" class="py-2 px-4 mt-6 lg:mt-12 mx-auto vote-btn">VOTEAZĂ</button>
           </div>
-          <div class="video-container flex flex-col justify-center mx-4 mt-12 md:mx-12 lg:mt-0">
+          <div class="video-container flex flex-col justify-center mx-4 mt-12 md:mx-20 lg:mx-6 xl:mx-12 lg:mt-0">
             <iframe id="video-2" class="video" src="https://www.youtube.com/embed/X6Yitp-R7X0?si=3O3yMIixY6e_uiwP" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
             <button id="video-2-btn" @click="toggleForm('video-2')" class="py-2 px-4 mt-6 lg:mt-12 mx-auto vote-btn">VOTEAZĂ</button>
           </div>
-          <div class="video-container flex flex-col justify-center mx-4 mt-12 md:mx-12 lg:mt-0">
+          <div class="video-container flex flex-col justify-center mx-4 mt-12 md:mx-20 lg:mx-6 xl:mx-12 lg:mt-0">
             <iframe id="video-3" class="video" src="https://www.youtube.com/embed/q3dsM0Qtc3w?si=AoRhKLj5JMlUUpNe" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
             <button id="video-3-btn" @click="toggleForm('video-3')" class="py-2 px-4 mt-6 lg:mt-12 mx-auto vote-btn">VOTEAZĂ</button>
           </div>
@@ -127,14 +127,14 @@ h1, h2 {
     height: 230px;
     width: auto;
 
-    @media (max-width: 768px) {
+    @media (max-width: 767px) {
       height: 180px !important;
       max-width: 80vw;
       margin: 0 auto;
     }
 
     @media (max-width: 1024px) {
-      height: 300px;
+      height: 380px;
     }
 
     &.video-active {

@@ -21,13 +21,18 @@
         </form>
         <button @click="submitForm" class="py-2 px-8 mt-10 mb-3 mx-auto">TRIMITE</button>
         <div v-show="submitOverlay" class="submit-overlay absolute flex justify-center">
-            <div class="text-box py-10 px-16 lg:py-12 lg:px-16 mx-4 lg:mx-0 m-auto">
+            <div class="text-box py-10 px-10 lg:py-12 lg:px-16 mx-4 lg:mx-0 m-auto">
                 <h3>
                     Felicitări te-ai înscris!
                 </h3>
-                <p>
-                    Recomandă și prietenilor tăi de pe Facebook
-                </p>
+                <div class="flex items-center flex-col lg:flex-row">
+                    <p>
+                        Recomandă și prietenilor tăi de pe Facebook
+                    </p>
+                    <button class="share-btn">
+                        <img src="images/facebook_share.png" class="h-6 w-auto ml-2 mt-2 lg:mt-0"/>
+                    </button>
+                </div>
                 <button @click="closeForm" class="py-2 px-8 mt-6 mb-3 mx-auto btn-close">ÎNCHIDE</button>
             </div>
         </div>
@@ -110,15 +115,15 @@ input[type="checkbox"] {
     transform: translateY(-0.075em);
     display: grid;
     place-content: center;
-}
 
-input[type="checkbox"]::before {
-    content: "";
-    width: 12px;
-    height: 12px;
-    transform: scale(0);
-    transition: 120ms transform ease-in-out;
-    box-shadow: inset 1em 1em $complementary-accent;
+    &::before {
+        content: "";
+        width: 12px;
+        height: 12px;
+        transform: scale(0);
+        transition: 120ms transform ease-in-out;
+        box-shadow: inset 1em 1em $complementary-accent;
+    }
 }
 
 input[type="checkbox"]:checked::before {
@@ -145,6 +150,12 @@ button {
         &:hover {
             color: $complementary-accent !important;
         }
+    }
+
+    &.share-btn {
+        background-color: transparent;
+        outline: none;
+        border: none;
     }
 }
 
